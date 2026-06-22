@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Arvo", serif;
+  --font-body: "Arvo", serif;
+  --font-amharic: "Noto Sans Ethiopic", sans-serif;
+
+  --color-cream: #FFFAF3;
+  --color-warm: #FFF2DB;
+  --color-peach: #FFE5BF;
+  --color-accent: #F62440;
+
+  --color-brand-50: #FFFAF3;
+  --color-brand-100: #FFF2DB;
+  --color-brand-200: #FFE5BF;
+  --color-brand-300: #ffcfa0;
+  --color-brand-400: #ff8a9a;
+  --color-brand-500: #F62440;
+  --color-brand-600: #d41e36;
+  --color-brand-700: #8b1428;
+  --color-brand-800: #3d0a14;
+  --color-brand-900: #1a060c;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-slide-up: slideUp 0.6s ease-out forwards;
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-spin-slow: spinSlow 20s linear infinite;
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(246, 36, 64, 0); }
+  50% { box-shadow: 0 0 30px 4px rgba(246, 36, 64, 0.25); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes borderDance {
+  0%, 100% { border-color: #F62440; }
+  33% { border-color: #FFE5BF; }
+  66% { border-color: #FFF2DB; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  @apply bg-cream text-brand-800 transition-colors duration-500;
+}
+
+.dark body {
+  @apply bg-brand-900 text-cream;
+}
+
+.lang-am body,
+.lang-am .font-display {
+  font-family: var(--font-amharic);
+}
+
+.lang-am .font-brand {
+  font-family: var(--font-display);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-brand {
+  font-family: var(--font-display);
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-brand-500 via-brand-600 to-brand-500 bg-clip-text text-transparent;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.glass {
+  @apply backdrop-blur-xl bg-cream/80 dark:bg-brand-800/80 border border-brand-200/60 dark:border-brand-700/60;
+}
+
+.card-hover {
+  @apply transition-all duration-500 hover:shadow-2xl hover:shadow-brand-500/15 hover:-translate-y-2;
+}
+
+.section-padding {
+  @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto;
+}
+
+.btn-magic {
+  @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold
+    text-brand-500 dark:text-peach bg-transparent border-2 border-brand-500 dark:border-peach
+    rounded-full overflow-hidden transition-all duration-300
+    hover:scale-105 hover:shadow-lg hover:shadow-brand-500/30
+    active:scale-95;
+}
+
+.btn-magic::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/10 to-brand-500/0
+    translate-x-[-100%] transition-transform duration-700;
+}
+
+.btn-magic:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-magic-light {
+  @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold
+    text-cream bg-transparent border-2 border-cream/80 rounded-full overflow-hidden
+    transition-all duration-300 hover:scale-105 hover:border-cream hover:shadow-lg hover:shadow-cream/20
+    active:scale-95;
+}
+
+.btn-icon {
+  @apply p-1 bg-transparent text-brand-700 dark:text-cream
+    hover:text-brand-500 dark:hover:text-peach hover:scale-125
+    transition-all duration-300 active:scale-95;
+}
+
+.btn-text {
+  @apply inline-flex items-center gap-2 font-semibold text-brand-500 dark:text-peach
+    bg-transparent hover:gap-3 transition-all duration-300;
+}
+
+.accent-ring {
+  @apply ring-2 ring-brand-500/30 dark:ring-peach/30;
+}
+
+.perfume-card-glow {
+  @apply relative;
+}
+
+.perfume-card-glow::after {
+  content: '';
+  @apply absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 -z-10;
+  background: linear-gradient(135deg, #F62440, #FFE5BF, #FFF2DB);
+}
+
+.perfume-card-glow:hover::after {
+  @apply opacity-100;
+  animation: borderDance 3s ease infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-warm dark:bg-brand-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-400 dark:bg-brand-600 rounded-full;
+}
+
+.particle {
+  @apply absolute rounded-full bg-peach/40 dark:bg-brand-500/20 pointer-events-none;
+}

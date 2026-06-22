@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.*
+
+server/data/admin.json
+server/uploads/
+client/dist/
+
+*.log
+npm-debug.log*

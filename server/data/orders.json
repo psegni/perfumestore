@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ea72ac82-1824-44bc-9207-a00ea6760e01",
+    "orderNumber": "SS-50072380",
+    "customer": {
+      "name": "Segni Bultossa",
+      "phone": "0989677723",
+      "email": "segnibultossa97@gmail.com",
+      "address": "Jemo, 11991"
+    },
+    "items": [
+      {
+        "id": "bleu-de-chanel",
+        "name": "Bleu de Chanel",
+        "brand": "Chanel",
+        "price": 14200,
+        "quantity": 2,
+        "size": "100ml",
+        "scent": "Fresh Woody"
+      }
+    ],
+    "paymentMethod": "cbe",
+    "total": 28400,
+    "status": "pending",
+    "createdAt": "2026-06-21T13:54:32.381Z"
+  },
+  {
+    "id": "5793fa67-aefb-4fb5-96b1-b36d923b7820",
+    "orderNumber": "SS-50601209",
+    "customer": {
+      "name": "Segni Bultossa",
+      "phone": "0989677723",
+      "email": "segnibultossa97@gmail.com",
+      "address": "Jemo, 11991"
+    },
+    "items": [
+      {
+        "id": "bleu-de-chanel",
+        "name": "Bleu de Chanel",
+        "brand": "Chanel",
+        "price": 14200,
+        "quantity": 1,
+        "size": "100ml",
+        "scent": "Fresh Woody"
+      }
+    ],
+    "paymentMethod": "cbe",
+    "total": 14200,
+    "status": "pending",
+    "createdAt": "2026-06-21T14:03:21.209Z"
+  }
+]
